@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class Product {
     @Id
-    private Long productId;
+    private String id;
     private String name;
     private Double price;
    

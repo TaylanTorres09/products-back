@@ -1,15 +1,15 @@
 package br.com.api.products.models;
 
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.Table;
+
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import lombok.Getter;
 import lombok.Setter;
 
-@Entity
-@Table(name = "products")
+@Document(collection = "products")
 @Getter
 @Setter
 public class Product {

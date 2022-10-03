@@ -13,7 +13,7 @@ public class ProductService {
     private ProductRepository productRepository;
 
     // Method list all products
-    public Iterable<Product> findAll() {
+    public Iterable<Product> listAll() {
         return productRepository.findAll();
     }
 

@@ -1,8 +1,6 @@
 package br.com.api.products.service;
 
-import java.text.ParseException;
-import java.time.LocalTime;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,7 +23,8 @@ public class UsedProductService {
 
     // Method create products
     public ResponseEntity<?> registerProduct(UsedProduct product) {
-        product.setManufactureDate(new Date());
+        LocalDateTime date = LocalDateTime.now();   
+        product.setManufactureDate(date);
         return new ResponseEntity<UsedProduct>(usedProductRepository.save(product), HttpStatus.CREATED);
     }
 

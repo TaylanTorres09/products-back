@@ -1,7 +1,6 @@
 package br.com.api.products.models;
 
-
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,6 +12,6 @@ import lombok.Setter;
 @Setter
 public class UsedProduct extends Product {
     
-    private Date manufactureDate;
+    private LocalDateTime manufactureDate;
    
 }

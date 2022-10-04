@@ -29,4 +29,10 @@ public class ProductService {
         return new ResponseEntity<Product>(productRepository.save(product), HttpStatus.OK);
     }
 
+    // Method delete products
+    public ResponseEntity<String> deleteProduct(String id) {
+        productRepository.deleteById(id);
+        return new ResponseEntity<String>("Produto " + id + " removido com sucesso", HttpStatus.OK);
+    }
+
 }

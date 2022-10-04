@@ -2,6 +2,7 @@ package br.com.api.products.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -34,6 +35,11 @@ public class ProductController {
     public ResponseEntity<?> updateProduct(@RequestBody Product product, @PathVariable String id) {
         product.setId(id);
         return productService.updateProduct(product);
+    }
+
+    @DeleteMapping("/remove/{id}")
+    public ResponseEntity<String> removeProduct(@PathVariable String id) {
+        return productService.deleteProduct(id);
     }
 
 }

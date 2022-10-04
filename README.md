@@ -34,7 +34,7 @@ O projeto consiste em fazer uma api utilizando o [Spring Boot](https://code.visu
 - Para clonar o projeto: git clone https://github.com/TaylanTorres09/Payment.git
 - Para Executar o projeto precisasse:
     - Java [JDK](https://www.oracle.com/java/technologies/downloads/#java17). Este projeto está usando a versão 17.
-    - Banco [MySql](https://www.mysql.com/), também pode-se utilizar o online segue tutorial do canal [Automation Step by Step](https://www.youtube.com/c/AutomationStepByStep): [Link](https://www.youtube.com/watch?v=TMGHOW8Hzvw) Plano grátis com 5mb.
+    - Banco [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register).
 
 - Extensões do vscode utilizadas:
     - [Debugger for Java](https://marketplace.visualstudio.com/items?itemName=redhat.java)

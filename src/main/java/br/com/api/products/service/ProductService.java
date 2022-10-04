@@ -24,4 +24,9 @@ public class ProductService {
         return new ResponseEntity<Product>(productRepository.save(product), HttpStatus.CREATED);
     }
 
+    // Method update products
+    public ResponseEntity<?> updateProduct(Product product) {
+        return new ResponseEntity<Product>(productRepository.save(product), HttpStatus.OK);
+    }
+
 }

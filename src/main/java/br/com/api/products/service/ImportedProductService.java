@@ -24,4 +24,16 @@ public class ImportedProductService {
         return new ResponseEntity<ImportedProduct>(importedProductRepository.save(product), HttpStatus.CREATED);
     }
 
+    // Method update products
+    public ResponseEntity<?> updateProduct(ImportedProduct product) {
+        return new ResponseEntity<ImportedProduct>(importedProductRepository.save(product), HttpStatus.OK);
+    }
+
+    // Method delete products
+    public ResponseEntity<String> deleteProduct(String id) {
+        importedProductRepository.deleteById(id);
+        return new ResponseEntity<String>("Produto " + id + " removido com sucesso", HttpStatus.OK);
+    }
+
+
 }

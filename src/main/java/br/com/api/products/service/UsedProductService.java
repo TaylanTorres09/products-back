@@ -28,4 +28,17 @@ public class UsedProductService {
         return new ResponseEntity<UsedProduct>(usedProductRepository.save(product), HttpStatus.CREATED);
     }
 
+    // Method update products
+    public ResponseEntity<?> updateProduct(UsedProduct product) {
+        LocalDateTime date = LocalDateTime.now();   
+        product.setManufactureDate(date);
+        return new ResponseEntity<UsedProduct>(usedProductRepository.save(product), HttpStatus.OK);
+    }
+
+    // Method delete products
+    public ResponseEntity<String> deleteProduct(String id) {
+        usedProductRepository.deleteById(id);
+        return new ResponseEntity<String>("Produto " + id + " removido com sucesso", HttpStatus.OK);
+    }
+
 }

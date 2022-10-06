@@ -56,8 +56,8 @@ O projeto consiste em fazer uma api utilizando o [Spring Boot](https://code.visu
     - Ou outra de sua preferência.
 
 ### Próximos Passos
-- Encriptar a senha.
 - Adicionar autenticação | cadastro de usuário da api.
 - Ainda no cadastro fazer verificação por email com geração de código de validação | serviços de mensageria.
+- Criar sessão por usuário.
 
 ## Autor

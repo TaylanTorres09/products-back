@@ -16,6 +16,9 @@ Api também terá cadastro de usuário e sistema de autenticação.
 O projeto consiste em fazer uma api utilizando o [Spring Boot](https://code.visualstudio.com/docs/java/java-spring-boot) com todas as relações **CRUD** e também satisfazer a problemática acima.
 
 ### EndPoints do projeto:
+#### Para o cadastro, login e logout de usuário:
+
+#### Para os produtos:
 - Listar todos os produtos: /products/
 - Cadastro de Produtos: /products/register
 - Listar todos os produtos **importados**: /products/imported/
@@ -23,7 +26,6 @@ O projeto consiste em fazer uma api utilizando o [Spring Boot](https://code.visu
 - Listar todos os produtos **usados**: /products/used/
 - Cadastro de Produtos **Usados**: /products/used/register
 
-#### Para o usuário:
 
 
 ### Descrição da Api

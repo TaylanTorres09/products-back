@@ -11,10 +11,12 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import br.com.api.products.models.ERole;
 import br.com.api.products.models.Role;
 import br.com.api.products.models.User;
 import br.com.api.products.payload.request.SignUpRequest;
 import br.com.api.products.payload.response.MessageResponse;
+import br.com.api.products.repository.RoleRepository;
 import br.com.api.products.repository.UserRepository;
 import br.com.api.products.utils.Regex;
 
@@ -23,6 +25,9 @@ public class UserService {
     
     @Autowired
     private UserRepository userRepository;
+
+    @Autowired
+    private RoleRepository roleRepository;
 
     @Autowired
     private PasswordEncoder encoder;
@@ -62,10 +67,40 @@ public class UserService {
             return new ResponseEntity<String>(message, HttpStatus.BAD_REQUEST);
         }
 
+        User user = new User(signUpRequest.getName(), signUpRequest.getEmail(), encoder.encode(signUpRequest.getPassword()));
+
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();
 
-        User user = new User(signUpRequest.getName(), signUpRequest.getEmail(), encoder.encode(signUpRequest.getPassword()));
+        if(strRoles == null) {
+            Role userRole = roleRepository.findByName(ERole.ROLE_USER)
+                            .orElseThrow(() -> new RuntimeException("Error: Role não encontrado."));
+            roles.add(userRole);
+        } else {
+            strRoles.forEach( role -> {
+                switch(role) {
+                    case "admin":
+                        Role adminRole = roleRepository.findByName(ERole.ROLE_ADMIN)
+                                .orElseThrow(() -> new RuntimeException("Error: Role não encontrado."));
+                        roles.add(adminRole);
+                        break;
+
+                    case "mod":
+                        Role modRole = roleRepository.findByName(ERole.ROLE_MODERATOR)
+                                .orElseThrow(() -> new RuntimeException("Error: Role não encontrado."));
+                        roles.add(modRole);
+                        break;
+                    
+                    default:
+                        Role userRole = roleRepository.findByName(ERole.ROLE_USER)
+                                .orElseThrow(() -> new RuntimeException("Error: Role não encontrado."));
+                        roles.add(userRole);
+
+                }
+            });
+        }
+
+        user.setRoles(roles);
 
         return new ResponseEntity<User>(userRepository.save(user), HttpStatus.CREATED);
     }

@@ -5,7 +5,6 @@ import java.util.Set;
 
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -23,9 +22,6 @@ public class User {
     
     @Id
     private String id;
-    
-    @NotEmpty(message = "Nome obrigatório")
-    private String userName;
 
     @NotEmpty(message = "Nome obrigatório")
     private String name;
@@ -40,8 +36,7 @@ public class User {
     @JoinColumn(name = "role_id")
     private Set<Role> roles = new HashSet<>();
 
-    public User(String userName, String name, String email, String password) {
-        this.userName = userName;
+    public User(String name, String email, String password) {
         this.name = name;
         this.email = email;
         this.password = password;

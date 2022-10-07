@@ -26,6 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import br.com.api.products.models.User;
 import br.com.api.products.payload.request.LoginRequest;
+import br.com.api.products.payload.request.SignUpRequest;
 import br.com.api.products.payload.response.UserInfoResponse;
 import br.com.api.products.security.jwt.JwtUtils;
 import br.com.api.products.security.services.UserDetailsImpl;
@@ -56,12 +57,8 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<?> register(@Valid @RequestBody User user, BindingResult bindingResult) {
-        FieldError fieldError = bindingResult.getFieldError();
-        if (bindingResult.hasErrors()) {
-            return new ResponseEntity<FieldError>(fieldError, HttpStatus.BAD_REQUEST);
-        }
-        return userService.register(user);
+    public ResponseEntity<?> register(@Valid @RequestBody SignUpRequest signUpRequest) {
+        return userService.register(signUpRequest);
     }
 
     @PostMapping("/login")

@@ -32,7 +32,7 @@ import br.com.api.products.service.UserService;
 
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
-@RequestMapping("/user")
+@RequestMapping("/api/user")
 public class UserController {
     
     @Autowired

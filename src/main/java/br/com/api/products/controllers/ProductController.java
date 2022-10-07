@@ -22,7 +22,7 @@ import br.com.api.products.service.ProductService;
 
 @RestController
 @CrossOrigin(origins = "*")
-@RequestMapping("/products")
+@RequestMapping("/api/products")
 public class ProductController {
     
     @Autowired

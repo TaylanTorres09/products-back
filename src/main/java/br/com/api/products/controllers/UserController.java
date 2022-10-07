@@ -31,7 +31,6 @@ import br.com.api.products.payload.response.UserInfoResponse;
 import br.com.api.products.security.jwt.JwtUtils;
 import br.com.api.products.security.services.UserDetailsImpl;
 import br.com.api.products.service.UserService;
-import br.com.api.products.utils.Regex;
 
 
 @RestController
@@ -47,9 +46,6 @@ public class UserController {
 
     @Autowired
     JwtUtils jwtUtils;
-
-    @Autowired
-    private Regex regex;
 
     @GetMapping("/")
     public Iterable<User> listAll() {

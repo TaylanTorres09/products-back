@@ -40,7 +40,8 @@ public class User {
     @JoinColumn(name = "role_id")
     private Set<Role> roles = new HashSet<>();
 
-    public User(String name, String email, String password) {
+    public User(String userName, String name, String email, String password) {
+        this.userName = userName;
         this.name = name;
         this.email = email;
         this.password = password;

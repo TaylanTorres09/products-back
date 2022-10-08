@@ -22,8 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.api.products.models.UsedProduct;
 import br.com.api.products.service.UsedProductService;
 
-@RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
+@RestController
 @RequestMapping("/api/products/used")
 public class UsedProductController {
     

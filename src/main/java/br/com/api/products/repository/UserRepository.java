@@ -8,8 +8,6 @@ import br.com.api.products.models.User;
 
 public interface UserRepository extends MongoRepository<User, String> {
     Optional<User> findByUserName(String userName);
-    
-    Optional<User> findByEmail(String email);
 
     Boolean existsByUserName(String userName);
     

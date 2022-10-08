@@ -47,7 +47,7 @@ Os usuários terão que respeitar três perfis, **roles**:
 - Link do Deploy:
 
 #### Executar Api localmente:
-- Para clonar o projeto: git clone https://github.com/TaylanTorres09/Payment.git
+- Para clonar o projeto: git clone https://github.com/TaylanTorres09/products-back.git
 - Para Executar o projeto precisasse:
     - Java [JDK](https://www.oracle.com/java/technologies/downloads/#java17). Este projeto está usando a versão 17.
     - Banco [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register).
@@ -59,11 +59,7 @@ Os usuários terão que respeitar três perfis, **roles**:
 
 - Configurar variáveis do Banco de Dados.
 
-![Banco de Dados](https://drive.google.com/uc?id=1VYkcIN2g5kPf3c7DBhGkdfprtMCRRnmZ)
-
 - Na pasta src/main, execute o arquivo PaymentApplication.java
-
-![PaymentApplication](https://drive.google.com/uc?id=1b_ie7_9Om0PtDrhIMF2J_HJFsT45Dt-f)
 
 - Para testar a api você pode utilizar ferramentas de client como:
     - [Postman](https://www.postman.com/)

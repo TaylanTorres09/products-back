@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.api.products.models.User;
 import br.com.api.products.payload.request.LoginRequest;
 import br.com.api.products.payload.request.SignUpRequest;
+import br.com.api.products.payload.response.JwtResponse;
 import br.com.api.products.payload.response.MessageResponse;
 import br.com.api.products.payload.response.UserInfoResponse;
 import br.com.api.products.security.jwt.JwtUtils;
@@ -64,28 +65,27 @@ public class UserController {
             .authenticate(new UsernamePasswordAuthenticationToken(loginRequest.getUserName(), loginRequest.getPassword()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
+        String jwt = jwtUtils.generateJwtToken(authentication);
 
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
-
-        ResponseCookie jwtCookie = jwtUtils.generateJwtCookie(userDetails);
 
         List<String> roles = userDetails.getAuthorities().stream()
             .map(item -> item.getAuthority())
             .collect(Collectors.toList());
 
-        return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, jwtCookie.toString())
-        .body(new UserInfoResponse(userDetails.getId(),
-                                    userDetails.getUsername(),
-                                    userDetails.getEmail(),
-                                    roles));
+            return ResponseEntity.ok(new JwtResponse(jwt, 
+                                                        userDetails.getId(), 
+                                                        userDetails.getUsername(), 
+                                                        userDetails.getEmail(), 
+                                                        roles));
     }
 
-    @PostMapping("/logout")
-    public ResponseEntity<?> logoutUser() {
-        ResponseCookie cookie = jwtUtils.getCleanJwtCookie();
-        messageResponse.setMessage("Você fez logout");
-        return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie.toString())
-            .body(messageResponse);
-    }
+    // @PostMapping("/logout")
+    // public ResponseEntity<?> logoutUser() {
+    //     ResponseCookie cookie = jwtUtils.getCleanJwtCookie();
+    //     messageResponse.setMessage("Você fez logout");
+    //     return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie.toString())
+    //         .body(messageResponse);
+    // }
 
 }

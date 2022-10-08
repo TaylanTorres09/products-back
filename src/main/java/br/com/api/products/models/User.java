@@ -3,13 +3,11 @@ package br.com.api.products.models;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToMany;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Getter;
@@ -32,8 +30,7 @@ public class User {
     @NotBlank(message = "Senha obrigatório")
     private String password;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "role_id")
+    @DBRef
     private Set<Role> roles = new HashSet<>();
 
     public User(String userName, String email, String password) {

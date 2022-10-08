@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.api.products.models.User;
 import br.com.api.products.payload.request.LoginRequest;
 import br.com.api.products.payload.request.SignUpRequest;
+import br.com.api.products.payload.response.MessageResponse;
 import br.com.api.products.payload.response.UserInfoResponse;
 import br.com.api.products.security.jwt.JwtUtils;
 import br.com.api.products.security.services.UserDetailsImpl;
@@ -43,6 +44,9 @@ public class UserController {
 
     @Autowired
     JwtUtils jwtUtils;
+
+    @Autowired
+    private MessageResponse messageResponse;
 
     @GetMapping("/")
     public Iterable<User> listAll() {
@@ -74,6 +78,14 @@ public class UserController {
                                     userDetails.getUsername(),
                                     userDetails.getEmail(),
                                     roles));
+    }
+
+    @PostMapping("/logout")
+    public ResponseEntity<?> logoutUser() {
+        ResponseCookie cookie = jwtUtils.getCleanJwtCookie();
+        messageResponse.setMessage("Você fez logout");
+        return ResponseEntity.ok().header(HttpHeaders.SET_COOKIE, cookie.toString())
+            .body(messageResponse);
     }
 
 }

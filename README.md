@@ -22,6 +22,15 @@ Os usuários terão que respeitar três perfis, **roles**:
 
 ### EndPoints do projeto:
 #### Para o cadastro, login e logout de usuário:
+- Cadastrar usuário: /api/user/register [POST]
+
+![Body](Img_README/BodyCadastro.png)
+
+- Logar usuário: /api/user/login [POST]
+
+![BodyLogin](Img_README/BodyLogin.png)
+
+- Logout usuário: /api/user/logout
 
 #### Para os produtos:
 - Listar todos os produtos: /products/

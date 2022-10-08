@@ -23,7 +23,7 @@ import br.com.api.products.models.UsedProduct;
 import br.com.api.products.service.UsedProductService;
 
 @RestController
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/api/products/used")
 public class UsedProductController {
     
@@ -31,7 +31,6 @@ public class UsedProductController {
     private UsedProductService usedProductService;
 
     @GetMapping("/")
-    @PreAuthorize("hasRole('USER') or hasRole('MODERATOR') or hasRole('ADMIN')")
     public Iterable<UsedProduct> listAll() {
         return usedProductService.listAll();
     }

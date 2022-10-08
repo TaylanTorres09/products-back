@@ -24,7 +24,7 @@ public class User {
     private String id;
 
     @NotEmpty(message = "Nome obrigatório")
-    private String name;
+    private String userName;
 
     @NotBlank(message = "Email obrigatório")
     private String email;
@@ -36,8 +36,8 @@ public class User {
     @JoinColumn(name = "role_id")
     private Set<Role> roles = new HashSet<>();
 
-    public User(String name, String email, String password) {
-        this.name = name;
+    public User(String userName, String email, String password) {
+        this.userName = userName;
         this.email = email;
         this.password = password;
     }

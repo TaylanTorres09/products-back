@@ -45,7 +45,7 @@ public class UserService {
 
     // Register users
     public ResponseEntity<?> register(SignUpRequest signUpRequest) {
-        if (userRepository.existsByName(signUpRequest.getName())) {
+        if (userRepository.existsByUserName(signUpRequest.getUserName())) {
             messageResponse.setMessage("Esse nome já existe");
             return new ResponseEntity<MessageResponse>(messageResponse, HttpStatus.BAD_REQUEST);
         } else if (userRepository.existsByEmail(signUpRequest.getEmail())) {
@@ -67,7 +67,7 @@ public class UserService {
             return new ResponseEntity<String>(message, HttpStatus.BAD_REQUEST);
         }
 
-        User user = new User(signUpRequest.getName(), signUpRequest.getEmail(), encoder.encode(signUpRequest.getPassword()));
+        User user = new User(signUpRequest.getUserName(), signUpRequest.getEmail(), encoder.encode(signUpRequest.getPassword()));
 
         Set<String> strRoles = signUpRequest.getRole();
         Set<Role> roles = new HashSet<>();

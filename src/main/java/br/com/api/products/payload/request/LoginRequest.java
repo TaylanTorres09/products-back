@@ -12,7 +12,7 @@ import lombok.Setter;
 @Setter
 public class LoginRequest {
     @NotBlank
-    private String name;
+    private String userName;
 
     @NotBlank
     private String password;

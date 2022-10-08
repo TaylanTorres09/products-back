@@ -11,9 +11,14 @@ Projeto inspirado em uma atividade da aula 162 do curso [Java COMPLETO Programa�
 
 Api para realizar cadastro de produtos, onde cada  produto possuirá nome e preço. Haverá produtos importados que terão taxa de alfandega e produtos usados que terão data de fabricação.
 
-Api também terá cadastro de usuário e sistema de autenticação.
+O projeto consiste em fazer uma api utilizando o [Spring Boot](https://code.visualstudio.com/docs/java/java-spring-boot) com todas as relações **CRUD** utilizando o serviço de *cloud* do banco de dados **MongoDB** o [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) satisfazendo a problemática acima.
 
-O projeto consiste em fazer uma api utilizando o [Spring Boot](https://code.visualstudio.com/docs/java/java-spring-boot) com todas as relações **CRUD** e também satisfazer a problemática acima.
+O sistema foi incrementado com um sistema de **autenticação** utilizando o **Json Web Token**, na criação de tokens para identificação de usuários e também com rotas da aplicação protegidas.
+
+Os usuários terão que respeitar três perfis, **roles**:
+- **admin**: Administrador;
+- **mod**: Moderador;
+- **user**: Usuário / Cliente;
 
 ### EndPoints do projeto:
 #### Para o cadastro, login e logout de usuário:

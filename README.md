@@ -30,21 +30,74 @@ Os usuários terão que respeitar três perfis, **roles**:
 
 ![BodyLogin](Img_README/BodyLogin.png)
 
-- Logout usuário: /api/user/logout
+- Listar usuário: /api/user/ [GET]
+
+![ListUser](Img_README/ListUser.png)
+
 
 #### Para os produtos:
-- Listar todos os produtos: /products/
-- Cadastro de Produtos: /products/register
-- Listar todos os produtos **importados**: /products/imported/
-- Cadastro de Produtos **Importados**: /products/imported/register
-- Listar todos os produtos **usados**: /products/used/
-- Cadastro de Produtos **Usados**: /products/used/register
+- Cadastro: /api/products/register [Post]
 
+``` Json Body
+{
+    "name": "string",
+    "price": "Double",
+}
+```
+- Listar: /api/products/ [GET]
+- Remover: /api/products/remove/{id} [DELETE]
+- Atualizar: /api/products/update/{id} [PUT]
+``` Json Body
+{
+    "name": "string",
+    "price": "Double"
+}
+```
 
+#### Produtos Importados:
+
+- Cadastro: /api/products/imported/register [Post]
+
+``` Json Body
+{
+    "name": "string",
+    "price": "Double",
+    "customsFee": "Double"
+}
+```
+- Listar: /api/imported/ [GET]
+- Remover: /api/products/imported/remove/{id} [DELETE]
+- Atualizar: /api/products/imported/update/{id} [PUT]
+``` Json Body
+{
+    "name": "string",
+    "price": "Double",
+    "customsFee": "Double"
+}
+```
+#### Produtos Usados:
+
+- Cadastro: /api/products/used/register [Post]
+
+``` Json Body
+{
+    "name": "string",
+    "price": "Double",
+}
+```
+- Listar: /api/products/used/ [GET]
+- Remover: /api/products/used/remove/{id} [DELETE]
+- Atualizar: /api/products/used/update/{id} [PUT]
+``` Json Body
+{
+    "name": "string",
+    "price": "Double"
+}
+```
 
 ### Descrição da Api
 #### Executar Api Remotamente:
-- Link do Deploy:
+- Link do Deploy: https://approducts.herokuapp.com/
 
 #### Executar Api localmente:
 - Para clonar o projeto: git clone https://github.com/TaylanTorres09/products-back.git
@@ -57,9 +110,9 @@ Os usuários terão que respeitar três perfis, **roles**:
     - [Spring Boot Extension Pack](https://marketplace.visualstudio.com/items?itemName=Pivotal.vscode-boot-dev-pack)
     - [Lombok Annotations Support for VS Code](https://marketplace.visualstudio.com/items?itemName=vscjava.vscode-lombok)
 
-- Configurar variáveis do Banco de Dados.
-
 - Na pasta src/main, execute o arquivo PaymentApplication.java
+
+![ProductsApplication](Img_README/ProductsApplication.png)
 
 - Para testar a api você pode utilizar ferramentas de client como:
     - [Postman](https://www.postman.com/)
@@ -68,8 +121,8 @@ Os usuários terão que respeitar três perfis, **roles**:
     - Ou outra de sua preferência.
 
 ### Próximos Passos
-- Adicionar autenticação | cadastro de usuário da api.
 - Ainda no cadastro fazer verificação por email com geração de código de validação | serviços de mensageria.
 - Criar sessão por usuário.
 
 ## Autor
+<a href="https://www.linkedin.com/in/taylan-torres" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a> 

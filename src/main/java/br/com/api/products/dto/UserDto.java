@@ -1,41 +1,23 @@
 package br.com.api.products.dto;
 
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 public class UserDto {
 
-    @NotEmpty(message = "Nome obrigatório")
+    @NotEmpty
+    @Size(min = 3, max = 30)
     private String userName;
 
-    @NotBlank(message = "Email obrigatório")
+    @NotBlank
+    @Size(max = 50)
+    @Email
     private String email;
 
-    @NotBlank(message = "Senha obrigatório")
+    @NotBlank
+    @Size(min = 6, max = 50)
     private String password;
-
-    public String getUserName() {
-        return userName;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
     
 }

@@ -23,7 +23,6 @@ import br.com.api.products.models.User;
 import br.com.api.products.payload.request.LoginRequest;
 import br.com.api.products.payload.request.SignUpRequest;
 import br.com.api.products.payload.response.JwtResponse;
-import br.com.api.products.payload.response.MessageResponse;
 import br.com.api.products.security.jwt.JwtUtils;
 import br.com.api.products.security.services.UserDetailsImpl;
 import br.com.api.products.service.UserService;
@@ -42,9 +41,6 @@ public class UserController {
 
     @Autowired
     JwtUtils jwtUtils;
-
-    @Autowired
-    private MessageResponse messageResponse;
 
     @GetMapping("/")
     public Iterable<User> listAll() {

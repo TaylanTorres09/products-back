@@ -2,14 +2,11 @@
 
 ## Descrição Geral
 
-Projeto inspirado em uma atividade da aula 162 do curso [Java COMPLETO Programação Orientada a Objetos +Projetos
-](https://www.udemy.com/course/java-curso-completo/), ministrado pelo professor Nélio Alves.
+Api para realizar cadastro de produtos, onde cada  produto possuirá nome e preço. Haverá produtos importados que terão taxa de alfandega e produtos usados que terão data de fabricação.
 
 <p>Projeto adaptado com o intuito do estudo do framework Spring Boot.</p>
 
 ### Descrição do projeto:
-
-Api para realizar cadastro de produtos, onde cada  produto possuirá nome e preço. Haverá produtos importados que terão taxa de alfandega e produtos usados que terão data de fabricação.
 
 O projeto consiste em fazer uma api utilizando o [Spring Boot](https://code.visualstudio.com/docs/java/java-spring-boot) com todas as relações **CRUD** utilizando o serviço de *cloud* do banco de dados **MongoDB** o [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) satisfazendo a problemática acima.
 
@@ -19,6 +16,9 @@ Os usuários terão que respeitar três perfis, **roles**:
 - **admin**: Administrador;
 - **mod**: Moderador;
 - **user**: Usuário / Cliente;
+
+Projeto inspirado em uma atividade da aula 162 do curso [Java COMPLETO Programação Orientada a Objetos +Projetos
+](https://www.udemy.com/course/java-curso-completo/), ministrado pelo professor Nélio Alves.
 
 ### EndPoints do projeto:
 #### Para o cadastro, login e logout de usuário:
